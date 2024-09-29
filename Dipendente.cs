@@ -15,6 +15,9 @@ public class Dipendente : Persona
   
     public Statistiche Statistiche { get; set; } 
 
+    // Costruttore vuoto richiesto da Entity Framework
+    public Dipendente() { }
+
 // costruttore per inizializzare un oggetto Dipendente con tutti i suoi campi
     public Dipendente(int id,string nome, string cognome, string dataDiNascita, string mail, Mansione mansione, Statistiche statistiche = null)
         : base(nome, cognome, dataDiNascita) // Fa riferimento alla proprietà 'DataDiNascita' della classe base 'Persona'

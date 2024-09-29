@@ -11,6 +11,9 @@ public class Persona
      // Proprietà per la data di nascita della persona
     public string DataDiNascita { get; set; }
 
+     // Costruttore vuoto richiesto da Entity Framework
+    public Persona() { }
+
     // Costruttore della classe 'Persona' che accetta e inizializza nome, cognome e data di nascita
     public Persona(string nome, string cognome, string dataDiNascita)
     {

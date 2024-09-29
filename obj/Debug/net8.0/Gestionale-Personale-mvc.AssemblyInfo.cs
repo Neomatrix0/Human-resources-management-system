@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Gestionale-Personale-mvc")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9a43f02f4169b032c646881b7ee2cf4e19aa1f41")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2b70ab3fe79310219375441e7ba477d1baf4e545")]
 [assembly: System.Reflection.AssemblyProductAttribute("Gestionale-Personale-mvc")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Gestionale-Personale-mvc")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

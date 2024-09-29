@@ -9,6 +9,9 @@ public class Statistiche{
  // Proprietà per memorizzare il numero di presenze di un dipendente
     public int Presenze{ get; set; }
 
+    // Costruttore vuoto richiesto da Entity Framework
+    public Statistiche() { }
+
 // costruttore classe Statistiche
 // Riceve i valori iniziali per 'Fatturato' e 'Presenze' e li assegna alle rispettive proprietà
     public Statistiche(double fatturato,int presenze){

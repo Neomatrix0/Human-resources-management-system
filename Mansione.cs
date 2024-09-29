@@ -20,4 +20,9 @@ public class Mansione
         Titolo = titolo;
         Stipendio = stipendio;
     }
+
+       // Costruttore senza parametri (necessario per Entity Framework)
+    public Mansione()
+    {
+    }
 }
