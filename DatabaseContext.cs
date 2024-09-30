@@ -22,9 +22,14 @@ public class Database : DbContext
         );
     }
 
-    public void AggiungiDipendente(string nome, string cognome, DateTime dataDiNascita, string mail, int mansioneId)
+public void AggiungiDipendente(string nome, string cognome, DateTime dataDiNascita, string mail, int mansioneId)
 {
     var mansione = Mansioni.Find(mansioneId); // Trova la mansione esistente
+
+    if (mansione == null)
+    {
+        throw new Exception("Mansione non trovata.");
+    }
 
     var dipendente = new Dipendente
     {
@@ -38,6 +43,7 @@ public class Database : DbContext
     Dipendenti.Add(dipendente); // Aggiunge il dipendente nel contesto
     SaveChanges(); // Salva i cambiamenti nel database
 }
+
 
 public void AggiungiMansione(Mansione mansione)
 {

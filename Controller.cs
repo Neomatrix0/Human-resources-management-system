@@ -72,7 +72,56 @@ class Controller
  
 // il metodo AggiungiDipendente gestisce l'intero processo di raccolta dei dati per un nuovo dipendente
 // verifica la validità delle informazioni e inserisce il nuovo dipendente nel database del sistema.
-    private void AggiungiDipendente()
+
+private void AggiungiDipendente()
+{
+    Console.WriteLine("Inserisci il nome:");
+    var nome = _view.GetInput();
+    Console.WriteLine("Inserisci il cognome:");
+    var cognome = _view.GetInput();
+    Console.WriteLine("Inserisci la data di nascita DD/MM/YYYY:");
+    var dataDiNascitaString = _view.GetInput();
+    Console.WriteLine("Inserisci la mail aziendale:");
+    var mail = _view.GetInput();
+
+    // Mostra le mansioni disponibili
+    var mansioni = _db.MostraMansioni();
+    foreach (var mansione in mansioni)
+    {
+        Console.WriteLine($"ID: {mansione.Id}, Titolo: {mansione.Titolo}, Stipendio: {mansione.Stipendio}");
+    }
+
+    Console.WriteLine("Scegli tra le mansioni disponibili per id:");
+    var mansioneInput = _view.GetInput();
+
+    if (int.TryParse(mansioneInput, out int mansioneId))
+    {
+        // Verifica che la mansione esista
+        var mansione = _db.Mansioni.Find(mansioneId);
+        if (mansione == null)
+        {
+            Console.WriteLine("Mansione non trovata. Riprova.");
+            return;
+        }
+
+        if (DateTime.TryParseExact(dataDiNascitaString, "dd/MM/yyyy", null, System.Globalization.DateTimeStyles.None, out DateTime dataDiNascita))
+        {
+            // Aggiunta del dipendente nel database
+            _db.AggiungiDipendente(nome, cognome, dataDiNascita, mail, mansioneId);
+            Console.WriteLine("Dipendente aggiunto con successo.");
+        }
+        else
+        {
+            Console.WriteLine("Formato data di nascita non valido. Riprova.");
+        }
+    }
+    else
+    {
+        Console.WriteLine("ID mansione non valido. Riprova.");
+    }
+}
+
+  /*  private void AggiungiDipendente()
     {
         Console.WriteLine("Inserisci il nome:"); // Richiesta del nome dell'utente
         var nome = _view.GetInput(); // Lettura del nome dell'utente
@@ -114,7 +163,7 @@ class Controller
         {
             Console.WriteLine("ID mansione non valido. Riprova.");
         }
-    }
+    }*/
 
 // il metodo RimuoviDipendente gestisce il processo di eliminazione di un dipendente dal database
 //fornendo all'utente un elenco dei dipendenti verificando l'input e rimuovendo il dipendente selezionato in modo sicuro
