@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Gestionale_Personale_mvc
-build_property.ProjectDir = D:\HR management system mvc\
+build_property.ProjectDir = C:\Users\dev1\Documents\Human-resources-management-system\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

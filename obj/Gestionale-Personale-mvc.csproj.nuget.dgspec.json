@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\HR management system mvc\\Gestionale-Personale-mvc.csproj": {}
+    "C:\\Users\\dev1\\Documents\\Human-resources-management-system\\Gestionale-Personale-mvc.csproj": {}
   },
   "projects": {
-    "D:\\HR management system mvc\\Gestionale-Personale-mvc.csproj": {
+    "C:\\Users\\dev1\\Documents\\Human-resources-management-system\\Gestionale-Personale-mvc.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\HR management system mvc\\Gestionale-Personale-mvc.csproj",
+        "projectUniqueName": "C:\\Users\\dev1\\Documents\\Human-resources-management-system\\Gestionale-Personale-mvc.csproj",
         "projectName": "Gestionale-Personale-mvc",
-        "projectPath": "D:\\HR management system mvc\\Gestionale-Personale-mvc.csproj",
-        "packagesPath": "C:\\Users\\danim\\.nuget\\packages\\",
-        "outputPath": "D:\\HR management system mvc\\obj\\",
+        "projectPath": "C:\\Users\\dev1\\Documents\\Human-resources-management-system\\Gestionale-Personale-mvc.csproj",
+        "packagesPath": "C:\\Users\\dev1\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\dev1\\Documents\\Human-resources-management-system\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\danim\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\dev1\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"

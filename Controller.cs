@@ -460,7 +460,7 @@ private void AggiungiDipendente()
 
 
     // metodo per aggiungere fatturato e presenze da assegnare al dipendente
-    private void AggiungiIndicatoriDipendente()
+/*    private void AggiungiIndicatoriDipendente()
     {
         Console.WriteLine("Elenco dei dipendenti:");
 
@@ -541,6 +541,79 @@ private void AggiungiDipendente()
         // Conferma che gli indicatori sono stati aggiornati
         Console.WriteLine("Indicatori aggiornati con successo.");
     }
+
+    */
+
+private void AggiungiIndicatoriDipendente()
+{
+    Console.WriteLine("Elenco dei dipendenti:");
+
+    // Recupera i dipendenti con ID
+    var dipendentiConId = _db.GetUsers(); // Ottieni la lista dei dipendenti
+
+    // Crea una tabella per visualizzare i dipendenti
+    var table = new Table();
+    table.AddColumn("ID");
+    table.AddColumn("Nome");
+    table.AddColumn("Cognome");
+    table.AddColumn("Mansione");
+    table.AddColumn("Stipendio");
+    table.AddColumn("Fatturato");
+    table.AddColumn("Presenze");
+
+    // Aggiungi le righe con i dati dei dipendenti
+    foreach (var dip in dipendentiConId)
+    {
+        table.AddRow(
+            dip.Id.ToString(), // Visualizza l'ID del dipendente
+            dip.Nome,
+            dip.Cognome,
+            dip.Mansione.Titolo,
+            dip.Stipendio.ToString(),
+            (dip.Statistiche != null ? dip.Statistiche.Fatturato.ToString() : "N/A"),
+            (dip.Statistiche != null ? dip.Statistiche.Presenze.ToString() : "N/A")
+        );
+    }
+
+    // Mostra la tabella
+    AnsiConsole.Write(table);
+
+    // Chiedi all'utente l'ID del dipendente
+    Console.WriteLine("Inserisci l'ID del dipendente per aggiungere indicatori:");
+    int dipendenteId = Convert.ToInt32(Console.ReadLine());
+
+    // Trova il dipendente selezionato
+    var dipendente = dipendentiConId.FirstOrDefault(d => d.Id == dipendenteId);
+    if (dipendente == null)
+    {
+        Console.WriteLine("Dipendente non trovato.");
+        return;
+    }
+
+    // Se il dipendente non ha statistiche, crea un nuovo oggetto Statistiche
+    if (dipendente.Statistiche == null)
+    {
+        dipendente.Statistiche = new Statistiche(0, 0);
+        _db.Statistiche.Add(dipendente.Statistiche); // Aggiungi le nuove statistiche nel contesto
+        _db.SaveChanges(); // Salva i cambiamenti nel database
+    }
+
+    // Chiedi i nuovi valori per fatturato e presenze
+    Console.WriteLine("Inserisci il fatturato del dipendente:");
+    double fatturato = Convert.ToDouble(Console.ReadLine());
+
+    Console.WriteLine("Inserisci il numero di presenze del dipendente:");
+    int presenze = Convert.ToInt32(Console.ReadLine());
+
+    // Aggiorna le statistiche del dipendente
+    dipendente.Statistiche.Fatturato = fatturato;
+    dipendente.Statistiche.Presenze = presenze;
+
+    _db.SaveChanges(); // Salva i cambiamenti nel database
+
+    Console.WriteLine("Indicatori aggiunti con successo.");
+}
+
 
     // metodo che ordina nel terminale stipendi dal più alto al più basso
     private void OrdinaStipendi()
